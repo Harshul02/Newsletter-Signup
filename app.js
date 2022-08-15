@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 // const request = require("request");
+const https = require("https");
+
 const app = express();
 
 app.use(express.static("public"));
@@ -32,7 +34,11 @@ app.post("/", function(req,res)
     };
 
     const jsonData = JSON.stringify(data);
+    const url = "https://us18.api.mailchimp.com/3.0/lists";
+    https.request(options, (res) => {})
+        
 })
+
 
 
 
