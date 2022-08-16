@@ -45,7 +45,10 @@ app.post("/", function(req,res)
 
         if(response.statusCode === 200)
         {
-            res.send("Successfully Registered");
+            res.sendFile(__dirname+"/success.html");
+        }
+        else{
+            res.sendFile(__dirname+"/failure.html");
         }
 
         response.on("data", function(data){
@@ -58,7 +61,10 @@ app.post("/", function(req,res)
         
 })
 
-
+app.post("/failure", function(req,res)
+{
+    res.redirect("/");
+})
 
 
 app.listen(3000, function(){
